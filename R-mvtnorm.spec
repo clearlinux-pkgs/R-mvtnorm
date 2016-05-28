@@ -4,16 +4,25 @@
 #
 Name     : R-mvtnorm
 Version  : 1.0
-Release  : 26
-URL      : http://cran.r-project.org/src/contrib/mvtnorm_1.0-2.tar.gz
-Source0  : http://cran.r-project.org/src/contrib/mvtnorm_1.0-2.tar.gz
+Release  : 27
+URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.0-5.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.0-5.tar.gz
 Summary  : Multivariate Normal and t Distributions
 Group    : Development/Tools
 License  : GPL-2.0
+Requires: R-mvtnorm-lib
 BuildRequires : clr-R-helpers
 
 %description
 No detailed description available
+
+%package lib
+Summary: lib components for the R-mvtnorm package.
+Group: Libraries
+
+%description lib
+lib components for the R-mvtnorm package.
+
 
 %prep
 %setup -q -c -n mvtnorm
@@ -23,13 +32,21 @@ No detailed description available
 %install
 rm -rf %{buildroot}
 export LANG=C
+export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
+export AR=gcc-ar
+export RANLIB=gcc-ranlib
+export LDFLAGS="$LDFLAGS  -Wl,-z -Wl,relro"
 mkdir -p %{buildroot}/usr/lib64/R/library
 R CMD INSTALL --install-tests --build  -l %{buildroot}/usr/lib64/R/library mvtnorm
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
+export LANG=C
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
+export no_proxy=localhost
 export _R_CHECK_FORCE_SUGGESTS_=false
 R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library mvtnorm
 
@@ -68,5 +85,8 @@ R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/lib
 /usr/lib64/R/library/mvtnorm/html/R.css
 /usr/lib64/R/library/mvtnorm/include/mvtnorm.h
 /usr/lib64/R/library/mvtnorm/include/mvtnormAPI.h
-/usr/lib64/R/library/mvtnorm/libs/mvtnorm.so
 /usr/lib64/R/library/mvtnorm/libs/symbols.rds
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/R/library/mvtnorm/libs/mvtnorm.so

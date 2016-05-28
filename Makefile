@@ -1,4 +1,5 @@
 PKG_NAME := R-mvtnorm
-URL := http://cran.r-project.org/src/contrib/mvtnorm_1.0-2.tar.gz
+URL := https://cran.r-project.org/src/contrib/mvtnorm_1.0-5.tar.gz
+ARCHIVES :=
 
 include ../common/Makefile.common
