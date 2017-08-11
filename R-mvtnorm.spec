@@ -4,7 +4,7 @@
 #
 Name     : R-mvtnorm
 Version  : 1.0.6
-Release  : 37
+Release  : 38
 URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.0-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.0-6.tar.gz
 Summary  : Multivariate Normal and t Distributions
@@ -14,7 +14,7 @@ Requires: R-mvtnorm-lib
 BuildRequires : clr-R-helpers
 
 %description
-No detailed description available
+random deviates and densities.
 
 %package lib
 Summary: lib components for the R-mvtnorm package.
@@ -32,11 +32,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1496609706
+export SOURCE_DATE_EPOCH=1502410449
 
 %install
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1496609706
+export SOURCE_DATE_EPOCH=1502410449
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -54,11 +54,6 @@ echo "FFLAGS = $FFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 echo "CXXFLAGS = $CXXFLAGS -march=haswell -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library mvtnorm
 for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx2 ; mv $i.avx2 ~/.stash/; done
-echo "CFLAGS = $CFLAGS -march=skylake-avx512 -ftree-vectorize " > ~/.R/Makevars
-echo "FFLAGS = $FFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
-echo "CXXFLAGS = $CXXFLAGS -march=skylake-avx512 -ftree-vectorize " >> ~/.R/Makevars
-R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library mvtnorm
-for i in `find %{buildroot}/usr/lib64/R/ -name "*.so"`; do mv $i $i.avx512 ; mv $i.avx512 ~/.stash/; done
 echo "CFLAGS = $CFLAGS -ftree-vectorize " > ~/.R/Makevars
 echo "FFLAGS = $FFLAGS -ftree-vectorize " >> ~/.R/Makevars
 echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
@@ -116,4 +111,3 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %defattr(-,root,root,-)
 /usr/lib64/R/library/mvtnorm/libs/mvtnorm.so
 /usr/lib64/R/library/mvtnorm/libs/mvtnorm.so.avx2
-/usr/lib64/R/library/mvtnorm/libs/mvtnorm.so.avx512
