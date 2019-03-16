@@ -4,7 +4,7 @@
 #
 Name     : R-mvtnorm
 Version  : 1.0.10
-Release  : 60
+Release  : 61
 URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.0-10.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.0-10.tar.gz
 Summary  : Multivariate Normal and t Distributions
@@ -32,10 +32,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552069566
+export SOURCE_DATE_EPOCH=1552778123
 
 %install
-export SOURCE_DATE_EPOCH=1552069566
+export SOURCE_DATE_EPOCH=1552778123
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -71,8 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library mvtnorm|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  mvtnorm || :
 
 
 %files
@@ -110,7 +109,15 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/mvtnorm/html/R.css
 /usr/lib64/R/library/mvtnorm/include/mvtnorm.h
 /usr/lib64/R/library/mvtnorm/include/mvtnormAPI.h
-/usr/lib64/R/library/mvtnorm/libs/symbols.rds
+/usr/lib64/R/library/mvtnorm/tests/Examples/mvtnorma-Ex.Rout.save
+/usr/lib64/R/library/mvtnorm/tests/bugfix-tests.R
+/usr/lib64/R/library/mvtnorm/tests/bugfix-tests.Rout.save
+/usr/lib64/R/library/mvtnorm/tests/regtest-TVPACK.R
+/usr/lib64/R/library/mvtnorm/tests/regtest-TVPACK.Rout.save
+/usr/lib64/R/library/mvtnorm/tests/rmvnorm.R
+/usr/lib64/R/library/mvtnorm/tests/test-getInt.R
+/usr/lib64/R/library/mvtnorm/tests/test-noisy-root.R
+/usr/lib64/R/library/mvtnorm/tests/test-noisy-root.Rout.save
 
 %files lib
 %defattr(-,root,root,-)
