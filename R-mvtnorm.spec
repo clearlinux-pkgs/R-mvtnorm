@@ -4,7 +4,7 @@
 #
 Name     : R-mvtnorm
 Version  : 1.0.11
-Release  : 68
+Release  : 69
 URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.0-11.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.0-11.tar.gz
 Summary  : Computes multivariate normal and t probabilities, quantiles, random deviates anddensities.
