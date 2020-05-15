@@ -10,7 +10,6 @@ R-bbmle
 R-bridgesampling
 R-calibrator
 R-coin
-R-colorspace
 R-conting
 R-cubature
 R-emmeans
@@ -33,5 +32,4 @@ R-polyCub
 R-polycor
 R-rrcov
 R-tclust
-R-treatSens
 R-varImp

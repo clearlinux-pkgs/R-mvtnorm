@@ -4,10 +4,10 @@
 #
 Name     : R-mvtnorm
 Version  : 1.1.0
-Release  : 73
+Release  : 74
 URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.1-0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.1-0.tar.gz
-Summary  : Computes multivariate normal and t probabilities, quantiles, random deviates anddensities.
+Summary  : Multivariate Normal and t Distributions
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-mvtnorm-lib = %{version}-%{release}
@@ -26,21 +26,22 @@ lib components for the R-mvtnorm package.
 
 %prep
 %setup -q -c -n mvtnorm
+cd %{_builddir}/mvtnorm
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582587241
+export SOURCE_DATE_EPOCH=1589514166
 
 %install
-export SOURCE_DATE_EPOCH=1582587241
+export SOURCE_DATE_EPOCH=1589514166
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
