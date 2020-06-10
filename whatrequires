@@ -5,7 +5,6 @@ R-DoseFinding
 R-Ecfun
 R-ICS
 R-ICSNP
-R-R2Cuba
 R-bbmle
 R-bridgesampling
 R-calibrator
@@ -24,12 +23,9 @@ R-libcoin
 R-miscF
 R-msm
 R-multcomp
-R-mvnfast
 R-party
 R-partykit
 R-pcaPP
-R-polyCub
 R-polycor
 R-rrcov
 R-tclust
-R-varImp
