@@ -9,8 +9,6 @@ R-bbmle
 R-bridgesampling
 R-calibrator
 R-coin
-R-conting
-R-cubature
 R-emmeans
 R-emulator
 R-fMultivar
@@ -23,10 +21,11 @@ R-libcoin
 R-miscF
 R-msm
 R-multcomp
-R-mvnfast
 R-party
 R-partykit
 R-pcaPP
 R-polycor
+R-projpred
 R-rrcov
 R-tclust
+R-tram
