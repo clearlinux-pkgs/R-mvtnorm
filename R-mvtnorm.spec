@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-mvtnorm
-Version  : 1.2.0
-Release  : 98
-URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.2-0.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.2-0.tar.gz
+Version  : 1.2.1
+Release  : 99
+URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.2-1.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.2-1.tar.gz
 Summary  : Multivariate Normal and t Distributions
 Group    : Development/Tools
 License  : GPL-2.0
@@ -43,10 +43,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685721870
+export SOURCE_DATE_EPOCH=1685981914
 
 %install
-export SOURCE_DATE_EPOCH=1685721870
+export SOURCE_DATE_EPOCH=1685981914
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -104,7 +104,7 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/mvtnorm/Meta/package.rds
 /usr/lib64/R/library/mvtnorm/Meta/vignette.rds
 /usr/lib64/R/library/mvtnorm/NAMESPACE
-/usr/lib64/R/library/mvtnorm/NEWS
+/usr/lib64/R/library/mvtnorm/NEWS.Rd
 /usr/lib64/R/library/mvtnorm/NEWS.old
 /usr/lib64/R/library/mvtnorm/R/mvtnorm
 /usr/lib64/R/library/mvtnorm/R/mvtnorm.rdb
