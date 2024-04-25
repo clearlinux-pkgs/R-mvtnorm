@@ -7,7 +7,7 @@
 #
 Name     : R-mvtnorm
 Version  : 1.2.4
-Release  : 104
+Release  : 105
 URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.2-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.2-4.tar.gz
 Summary  : Multivariate Normal and t Distributions
