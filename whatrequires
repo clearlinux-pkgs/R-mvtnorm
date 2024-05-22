@@ -18,6 +18,7 @@ R-geiger
 R-joineRML
 R-ks
 R-libcoin
+R-maxstat
 R-miscF
 R-msm
 R-multcomp
@@ -27,5 +28,5 @@ R-pcaPP
 R-polycor
 R-projpred
 R-rrcov
-R-tclust
+R-rstpm2
 R-tram
