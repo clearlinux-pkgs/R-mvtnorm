@@ -6,14 +6,15 @@
 # autospec commit: f35655a
 #
 Name     : R-mvtnorm
-Version  : 1.2.6
-Release  : 107
-URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.2-6.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.2-6.tar.gz
+Version  : 1.3.0
+Release  : 108
+URL      : https://cran.r-project.org/src/contrib/mvtnorm_1.3-0.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/mvtnorm_1.3-0.tar.gz
 Summary  : Multivariate Normal and t Distributions
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: R-mvtnorm-lib = %{version}-%{release}
+BuildRequires : R-numDeriv
 BuildRequires : buildreq-R
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -48,10 +49,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1724080311
+export SOURCE_DATE_EPOCH=1725308422
 
 %install
-export SOURCE_DATE_EPOCH=1724080311
+export SOURCE_DATE_EPOCH=1725308422
 rm -rf %{buildroot}
 LANG=C.UTF-8
 CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -139,8 +140,10 @@ R CMD check --no-manual --no-examples --no-codoc . || :
 /usr/lib64/R/library/mvtnorm/tests/plmvnorm-Ex.Rout.save
 /usr/lib64/R/library/mvtnorm/tests/regtest-TVPACK.R
 /usr/lib64/R/library/mvtnorm/tests/regtest-TVPACK.Rout.save
+/usr/lib64/R/library/mvtnorm/tests/regtest-aperm.R
 /usr/lib64/R/library/mvtnorm/tests/regtest-scores.R
 /usr/lib64/R/library/mvtnorm/tests/regtest-scores.Rout.save
+/usr/lib64/R/library/mvtnorm/tests/regtest_mvnorm.R
 /usr/lib64/R/library/mvtnorm/tests/rmvnorm.R
 /usr/lib64/R/library/mvtnorm/tests/slpmvnorm.R
 /usr/lib64/R/library/mvtnorm/tests/test-getInt.R
